@@ -10,10 +10,12 @@ interface Props {
 const { inLogin = false } = Astro.props as Props;
 ---
 
-<header class="p-4 bg-slate-100 border-b border-gray-300">
-  <div class="flex items-center justify-between w-full max-w-7xl mx-auto">
+<header
+  class="p-2 bg-slate-200/60 backdrop-blur-lg rounded-full fixed top-2 z-50 left-0 right-0 animate-scroll-down w-11/12 max-w-6xl mx-auto shadow-2xl"
+>
+  <div class="flex items-center justify-between w-full">
     <a href="/">
-      <Logo class="w-full h-auto max-w-36" />
+      <Logo class="w-full h-auto max-w-36 pl-1" />
     </a>
     {
       !inLogin && (
@@ -28,3 +30,19 @@ const { inLogin = false } = Astro.props as Props;
     }
   </div>
 </header>
+
+<style>
+  .animate-scroll-down {
+    animation: scrollDown 5s both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 200px;
+  }
+
+  @keyframes scrollDown {
+    from {
+    }
+    to {
+      transform: scale(0.95);
+    }
+  }
+</style>

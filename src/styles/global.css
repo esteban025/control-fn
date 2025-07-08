@@ -37,3 +37,11 @@
     transform: translateY(-2px);
   }
 }
+
+.bg-gradient-section {
+    background: radial-gradient(
+      circle at 50% 10%,
+      var(--color-green-50) 20%,
+      var(--color-green-100) 80%
+    );
+  }

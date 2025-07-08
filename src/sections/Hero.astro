@@ -2,28 +2,37 @@
 import ArrowIcon from "@/assets/arrow.svg";
 ---
 
-<section
-  class="hero p-4 overflow-hidden bg-gradient-to-b from-gray-50 to-green-100"
->
+<section class="hero p-4 overflow-hidden bg-gradient-section">
   <div
-    class="text-center space-y-4 w-full max-w-3xl mx-auto h-[80dvh] flex flex-col justify-center items-center"
+    class="text-center space-y-4 w-full max-w-3xl mx-auto h-dvh flex flex-col justify-center items-center"
   >
     <h1 class="title-principal font-bold font-cinzel text-gray-900">
-      Control de Finanzas
+      Control de <span
+        class="bg-gradient-to-br from-green-500 to-indigo-600 bg-clip-text text-transparent"
+        >Finanzas</span
+      >
     </h1>
     <p class="text-gray-600 text-balance">
       Administra tus finanzas de manera sencilla y efectiva. Lleva un control
       detallado de tus ingresos y gastos.
     </p>
-    <a
-      href="/dashboard"
-      class="py-2 inline-flex items-center text-gray-600 relative transition-all duration-300 hover:text-gray-800 before:content-[''] before:absolute before:w-0 before:h-[2px] before:bg-gray-600 before:bottom-0 before:rounded-full before:transition-all before:duration-300 hover:before:w-full hover:before:bg-gray-800 group"
-    >
-      <span>Comenzar</span>
-      <span class="group-hover:-rotate-30 transition-transform duration-300">
-        <ArrowIcon class="size-5 ml-2 inline-block" />
-      </span>
-    </a>
+    <div class="btns flex items-center justify-center gap-4">
+      <a
+        href="/login"
+        class="px-4 py-2 rounded-full cursor-pointer font-semibold border-2 bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary"
+      >
+        <span>Registrarme</span>
+      </a>
+      <a
+        href="/dashboard"
+        class="p-2 px-3 inline-flex items-center text-gray-600 rounded-full overflow-hidden relative transition-all duration-300 hover:text-gray-800 hover:bg-white before:content-[''] before:absolute before:w-0 before:h-[2px] before:bg-gray-600 before:bottom-0 before:left-0 before:rounded-full before:transition-all before:duration-300 hover:before:w-full hover:before:bg-gray-800 group"
+      >
+        <span>Ir a Dashboard</span>
+        <span class="group-hover:-rotate-30 transition-transform duration-300">
+          <ArrowIcon class="size-5 ml-2 inline-block" />
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
