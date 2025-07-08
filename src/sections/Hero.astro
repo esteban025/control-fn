@@ -2,9 +2,19 @@
 import ArrowIcon from "@/assets/arrow.svg";
 ---
 
-<section class="hero p-4 overflow-hidden bg-gradient-section">
+<section class="hero p-4 overflow-hidden bg-gradient-section relative">
   <div
-    class="text-center space-y-4 w-full max-w-3xl mx-auto h-dvh flex flex-col justify-center items-center"
+    class="absolute inset-0 opacity-[3%] flex items-center justify-center pointer-events-none"
+    style="mask-image: linear-gradient(to top, transparent 0%, black 30%);"
+  >
+    <img
+      src="/images/hero.webp"
+      alt="Hero Image"
+      class="w-full h-full object-cover max-w-4xl mx-auto"
+    />
+  </div>
+  <div
+    class="text-center space-y-4 w-full max-w-3xl mx-auto h-dvh flex flex-col justify-center items-center relative z-10"
   >
     <h1 class="title-principal font-bold font-cinzel text-gray-900">
       Control de <span

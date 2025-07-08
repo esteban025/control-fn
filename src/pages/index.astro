@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "@/assets/arrow.svg";
 import ExpertsSection from "@sections/ExpertsSection.astro";
 import FinancialFreedomSection from "@sections/FinancialFreedomSection.astro";
 import Hero from "@sections/Hero.astro";
@@ -24,5 +25,43 @@ import Layout from "../layouts/Layout.astro";
 		<InvestmentSection />
 		<ExpertsSection />
 		<FinancialFreedomSection />
+		<div class="fixed bottom-2 right-2 btn-animate">
+			<button
+				class="bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary p-2 rounded-full cursor-pointer font-semibold border-2 animate-bounce"
+				id="scroll-to-top"
+			>
+				<span class="-rotate-90 flex items-center justify-center text-gray-50">
+					<ArrowIcon class="size-5" />
+				</span>
+			</button>
+		</div>
 	</main>
 </Layout>
+
+<script>
+	const $btnScroll = document.getElementById("scroll-to-top");
+	$btnScroll?.addEventListener("click", () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	});
+</script>
+
+<style>
+	.btn-animate {
+		animation: show-btn 3s linear both;
+		animation-timeline: scroll(root block);
+		animation-range: 0% 200px;
+	}
+	@keyframes show-btn {
+		from {
+			transform: translateY(100px);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+</style>

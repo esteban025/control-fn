@@ -11,7 +11,7 @@ const { inLogin = false } = Astro.props as Props;
 ---
 
 <header
-  class="p-2 bg-slate-200/60 backdrop-blur-lg rounded-full fixed top-2 z-50 left-0 right-0 animate-scroll-down w-11/12 max-w-6xl mx-auto shadow-2xl"
+  class="p-2 backdrop-blur-lg rounded-full fixed top-2 z-50 left-0 right-0 animate-scroll-down w-11/12 max-w-6xl mx-auto shadow-2xl"
 >
   <div class="flex items-center justify-between w-full">
     <a href="/">
@@ -40,8 +40,14 @@ const { inLogin = false } = Astro.props as Props;
 
   @keyframes scrollDown {
     from {
+      background-color: var(--color-gray-50);
     }
     to {
+      background-color: color-mix(
+        in oklab,
+        var(--color-gray-200) 60%,
+        transparent
+      );
       transform: scale(0.95);
     }
   }
