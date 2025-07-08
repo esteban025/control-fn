@@ -1,0 +1,18 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+
+if (session) {
+  return Astro.redirect("/dashboard");
+}
+---
+
+<Layout
+  title="Iniciar Sesión"
+  description="Control de Finanzas - Iniciar Sesión"
+  inLogin
+>
+  <h1 class="text-2xl font-bold">Iniciar Sesión</h1>
+  <p class="mt-4">Por favor, inicia sesión para continuar.</p>
+</Layout>

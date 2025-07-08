@@ -5,8 +5,9 @@ import Footer from "@sections/Footer.astro";
 interface Props {
 	title: string;
 	description: string;
+	inLogin?: boolean;
 }
-const { title, description } = Astro.props as Props;
+const { title, description, inLogin = false } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -19,7 +20,7 @@ const { title, description } = Astro.props as Props;
 		<meta name="description" content={description} />
 	</head>
 	<body class="font-inter grid grid-rows-[auto_1fr_auto] min-h-screen">
-		<Header />
+		<Header inLogin={inLogin} />
 		<slot />
 		<Footer />
 	</body>

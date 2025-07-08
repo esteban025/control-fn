@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+
+if (!session) {
+  return Astro.redirect("/login");
+}
+---
+
+<Layout title="Dashboard" description="Control de Finanzas - Dashboard">
+  <h1 class="text-2xl font-bold">Bienvenido al Dashboard</h1>
+  <p class="mt-4">Aquí podrás ver un resumen de tus finanzas.</p>
+</Layout>

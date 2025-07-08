@@ -3,6 +3,11 @@ import Logo from "@/assets/logo.svg";
 import Buttons from "@/components/Buttons.astro";
 import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
+
+interface Props {
+  inLogin?: boolean;
+}
+const { inLogin = false } = Astro.props as Props;
 ---
 
 <header class="p-4 bg-slate-100 border-b border-gray-300">
@@ -11,10 +16,14 @@ const session = await getSession(Astro.request);
       <Logo class="w-full h-auto max-w-36" />
     </a>
     {
-      session ? (
-        <Buttons name="Cerrar Sesión" btnId="logout-button" secondary />
-      ) : (
-        <Buttons name="Iniciar Sesión" btnId="login-button" />
+      !inLogin && (
+        <>
+          {session ? (
+            <Buttons name="Cerrar Sesión" btnId="logout-button" secondary />
+          ) : (
+            <Buttons name="Iniciar Sesión" btnId="login-button" />
+          )}
+        </>
       )
     }
   </div>
