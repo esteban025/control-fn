@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+.btn-shadow-primary {
+  box-shadow: 2px 3px 3px rgba(0, 0, 255, 0.2), -2px 3px 3px rgba(0, 0, 255, 0.2);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 2px 3px 3px rgba(0, 0, 255, 0.5), -2px 3px 3px rgba(0, 0, 255, 0.5);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-shadow-secondary {
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2), -2px 3px 3px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4), -2px 3px 3px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+}
