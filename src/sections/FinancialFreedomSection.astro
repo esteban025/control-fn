@@ -1,5 +1,55 @@
 ---
-// Sección sobre libertad financiera
+// pasos
+const stepsFinance = [
+  {
+    title: "Estabilidad Financiera",
+    colors: "bg-yellow-500",
+    description:
+      "Tener suficiente dinero para cubrir gastos básicos sin estrés financiero.",
+    checklist: [
+      "Fondo de emergencia de 3-6 meses",
+      "Gastos fijos cubiertos",
+      "Sin deudas de tarjetas de crédito",
+    ],
+  },
+  {
+    title: "Seguridad Financiera",
+    colors: "bg-orange-500",
+    description: "Tener ingresos pasivos que cubran gastos básicos de vida.",
+    checklist: [
+      "Inversiones diversificadas",
+      "Múltiples fuentes de ingresos",
+      "Protección contra la inflación",
+    ],
+  },
+  {
+    title: "Independencia Financiera",
+    colors: "bg-red-500",
+    description:
+      "Tener suficiente riqueza para mantener tu estilo de vida sin trabajar.",
+    checklist: [
+      "Ingresos pasivos > gastos totales",
+      "Libertad de elección profesional",
+      "Capacidad de ayudar a otros",
+    ],
+  },
+];
+
+const wealthHabits = [
+  {
+    title: "Vive por debajo de tus medios",
+    description:
+      "El 95% de los millonarios viven con menos del 70% de sus ingresos.",
+  },
+  {
+    title: "Invierte consistentemente",
+    description: "Invierte al menos el 15% de tus ingresos automáticamente.",
+  },
+  {
+    title: "Desarrolla múltiples fuentes de ingresos",
+    description: "Los millonarios tienen en promedio 7 fuentes de ingresos.",
+  },
+];
 ---
 
 <section
@@ -16,170 +66,64 @@
       </p>
     </div>
 
-    <div class="grid lg:grid-cols-3 gap-8 mb-12">
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <div class="text-center mb-4">
-          <div
-            class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <span class="text-white font-bold text-2xl">1</span>
+    <div
+      class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8 mb-12"
+    >
+      {
+        stepsFinance.map((step, index) => (
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="text-center mb-4">
+              <div
+                class:list={[
+                  step.colors,
+                  "size-12 rounded-full flex items-center justify-center mx-auto mb-4",
+                ]}
+              >
+                <span class="text-white font-bold text-2xl">{index + 1}</span>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">{step.title}</h3>
+            </div>
+            <p class="text-gray-600 mb-4">{step.description}</p>
+            <ul class="space-y-2 text-sm text-gray-600 list-disc pl-5">
+              {step.checklist.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
           </div>
-          <h3 class="text-xl font-semibold text-gray-800">
-            Estabilidad Financiera
-          </h3>
-        </div>
-        <p class="text-gray-600 mb-4">
-          Tener suficiente dinero para cubrir gastos básicos sin estrés
-          financiero.
-        </p>
-        <ul class="space-y-2 text-sm text-gray-600">
-          <li>• Fondo de emergencia de 3-6 meses</li>
-          <li>• Gastos fijos cubiertos</li>
-          <li>• Sin deudas de tarjetas de crédito</li>
-        </ul>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <div class="text-center mb-4">
-          <div
-            class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <span class="text-white font-bold text-2xl">2</span>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800">
-            Seguridad Financiera
-          </h3>
-        </div>
-        <p class="text-gray-600 mb-4">
-          Tener ingresos pasivos que cubran gastos básicos de vida.
-        </p>
-        <ul class="space-y-2 text-sm text-gray-600">
-          <li>• Inversiones diversificadas</li>
-          <li>• Múltiples fuentes de ingresos</li>
-          <li>• Protección contra la inflación</li>
-        </ul>
-      </div>
-
-      <div class="bg-white p-6 rounded-lg shadow-lg">
-        <div class="text-center mb-4">
-          <div
-            class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <span class="text-white font-bold text-2xl">3</span>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800">
-            Independencia Financiera
-          </h3>
-        </div>
-        <p class="text-gray-600 mb-4">
-          Tener suficiente riqueza para mantener tu estilo de vida sin trabajar.
-        </p>
-        <ul class="space-y-2 text-sm text-gray-600">
-          <li>• Ingresos pasivos > gastos totales</li>
-          <li>• Libertad de elección profesional</li>
-          <li>• Capacidad de ayudar a otros</li>
-        </ul>
-      </div>
+        ))
+      }
     </div>
 
-    <div class="bg-white p-8 rounded-lg shadow-xl mb-12">
-      <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">
+    <div class="p-8">
+      <h3 class="subtitle font-bold text-gray-800 mb-4 text-center font-cinzel">
         Estrategias de Millonarios
       </h3>
       <div class="grid md:grid-cols-2 gap-8">
         <div>
-          <h4 class="text-lg font-semibold text-gray-800 mb-4">
+          <h4 class="text-lg font-bold text-gray-800 mb-4">
             Hábitos de Construcción de Riqueza
           </h4>
           <div class="space-y-4">
-            <div class="flex items-start">
-              <div
-                class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-              >
-                <svg
-                  class="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <div>
-                <h5 class="font-medium text-gray-800">
-                  Vive por debajo de tus medios
-                </h5>
-                <p class="text-sm text-gray-600">
-                  El 95% de los millonarios viven con menos del 70% de sus
-                  ingresos
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div
-                class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-              >
-                <svg
-                  class="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <div>
-                <h5 class="font-medium text-gray-800">
-                  Invierte consistentemente
-                </h5>
-                <p class="text-sm text-gray-600">
-                  Invierte al menos el 15% de tus ingresos automáticamente
-                </p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div
-                class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-              >
-                <svg
-                  class="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <div>
-                <h5 class="font-medium text-gray-800">
-                  Desarrolla múltiples fuentes de ingresos
-                </h5>
-                <p class="text-sm text-gray-600">
-                  Los millonarios tienen en promedio 7 fuentes de ingresos
-                </p>
-              </div>
-            </div>
+            {
+              wealthHabits.map((habit) => (
+                <div class="flex items-start space-x-2">
+                  <div class="text-green-500">✔</div>
+                  <div class="s">
+                    <h5 class="font-medium text-gray-800">{habit.title}</h5>
+                    <p class="text-sm text-gray-600">{habit.description}</p>
+                  </div>
+                </div>
+              ))
+            }
           </div>
         </div>
 
         <div>
-          <h4 class="text-lg font-semibold text-gray-800 mb-4">
+          <h4 class="text-lg font-bold text-gray-800 mb-4">
             Mentalidad de Abundancia
           </h4>
           <div
-            class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-6 rounded-lg"
+            class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white p-6 rounded-xl"
           >
             <blockquote class="text-lg italic mb-4">
               "Los pobres trabajan por dinero. Los ricos hacen que el dinero
@@ -201,34 +145,6 @@
                 Rodéate de personas con mentalidad de crecimiento financiero
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center">
-      <div
-        class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-8 rounded-lg shadow-xl"
-      >
-        <h3 class="text-2xl font-semibold mb-4">
-          Tu Viaje Financiero Comienza Hoy
-        </h3>
-        <p class="text-lg mb-6 text-purple-100">
-          Cada experto financiero comenzó con un primer paso. El tuyo puede ser
-          hoy mismo.
-        </p>
-        <div class="grid md:grid-cols-3 gap-4 text-sm">
-          <div class="bg-white/20 p-4 rounded-lg">
-            <h4 class="font-semibold mb-2">Paso 1</h4>
-            <p>Calcula tu patrimonio neto actual</p>
-          </div>
-          <div class="bg-white/20 p-4 rounded-lg">
-            <h4 class="font-semibold mb-2">Paso 2</h4>
-            <p>Define tus metas financieras</p>
-          </div>
-          <div class="bg-white/20 p-4 rounded-lg">
-            <h4 class="font-semibold mb-2">Paso 3</h4>
-            <p>Comienza a invertir hoy mismo</p>
           </div>
         </div>
       </div>

@@ -6,12 +6,12 @@ import InvestmentSection from "@sections/InvestmentSection.astro";
 import SavingsSection from "@sections/SavingsSection.astro";
 import Layout from "../layouts/Layout.astro";
 
-import { getSession } from "auth-astro/server";
-const session = await getSession(Astro.request);
+// import { getSession } from "auth-astro/server";
+// const session = await getSession(Astro.request);
 
-if (session) {
-	return Astro.redirect("/dashboard");
-}
+// if (session) {
+// 	return Astro.redirect("/dashboard");
+// }
 ---
 
 <Layout
