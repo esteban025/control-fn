@@ -1,4 +1,13 @@
 @import "tailwindcss";
+/* Supports weights 100-900 */
+@import '@fontsource-variable/inter';
+/* Supports weights 400-900 */
+@import '@fontsource-variable/cinzel';
+
+@theme {
+  --font-inter: 'Inter Variable', sans-serif;
+  --font-cinzel: 'Cinzel Variable', serif;
+}
 
 .btn-shadow-primary {
   box-shadow: 2px 3px 3px rgba(0, 0, 255, 0.2), -2px 3px 3px rgba(0, 0, 255, 0.2);
