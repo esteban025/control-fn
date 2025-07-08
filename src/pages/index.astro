@@ -1,5 +1,9 @@
 ---
+import ExpertsSection from "@sections/ExpertsSection.astro";
+import FinancialFreedomSection from "@sections/FinancialFreedomSection.astro";
 import Hero from "@sections/Hero.astro";
+import InvestmentSection from "@sections/InvestmentSection.astro";
+import SavingsSection from "@sections/SavingsSection.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { getSession } from "auth-astro/server";
@@ -14,7 +18,11 @@ if (session) {
 	title="Control de Finanzas"
 	description="Este es un ejemplo de aplicación de control de finanzas"
 >
-	<main>
+	<main class="">
 		<Hero />
+		<SavingsSection />
+		<InvestmentSection />
+		<ExpertsSection />
+		<FinancialFreedomSection />
 	</main>
 </Layout>

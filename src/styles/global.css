@@ -9,6 +9,15 @@
   --font-cinzel: 'Cinzel Variable', serif;
 }
 
+.subtitle {
+  font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+}
+
+.paragraph-section {
+  font-size: clamp(.9rem, 3vw, 1.25rem);
+  line-height: normal;
+}
+
 .btn-shadow-primary {
   box-shadow: 2px 3px 3px rgba(0, 0, 255, 0.2), -2px 3px 3px rgba(0, 0, 255, 0.2);
   transition: box-shadow 0.2s ease, transform 0.2s ease;

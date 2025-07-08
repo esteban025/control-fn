@@ -1,0 +1,77 @@
+---
+// Sección sobre la importancia del ahorro
+const whySaveItems = [
+  "Crear un fondo de emergencia para imprevistos",
+  "Alcanzar metas financieras a largo plazo",
+  "Generar tranquilidad y seguridad económica",
+  "Crear oportunidades de inversión futura",
+];
+---
+
+<section
+  class="savings-section bg-gradient-to-b from-green-100 to-gray-50 py-16"
+>
+  <div class="mx-auto px-4 w-full max-w-7xl">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 subtitle font-cinzel mb-3">
+        La Importancia del Ahorro
+      </h2>
+      <p class="text-gray-600 text-balance paragraph-section">
+        El ahorro es la base de toda estabilidad financiera. Comienza hoy y
+        asegura tu futuro.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            ¿Por qué ahorrar?
+          </h3>
+          <ul class="space-y-3 text-gray-600">
+            {
+              whySaveItems.map((item) => (
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-xl"
+        >
+          <h4 class="text-xl font-semibold mb-3">Regla del 50/30/20</h4>
+          <p class="text-blue-100">
+            Destina el 50% de tus ingresos a gastos esenciales, 30% a gastos
+            personales y 20% al ahorro.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <blockquote class="text-lg italic text-gray-700 mb-4">
+          "No ahorres lo que queda después de gastar; gasta lo que queda después
+          de ahorrar."
+        </blockquote>
+        <cite class="text-blue-600 font-semibold">- Warren Buffett</cite>
+
+        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+          <h5 class="font-semibold text-gray-800 mb-2">Consejo Práctico:</h5>
+          <p class="text-gray-600">
+            Automatiza tu ahorro. Configura una transferencia automática a tu
+            cuenta de ahorros el día que recibas tu salario.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <style>
+  .savings-section {
+    min-height: 70vh;
+  }
+</style> -->

@@ -1,0 +1,138 @@
+---
+const smartInvestment = [
+  {
+    title: "Diversificación",
+    description:
+      '"No pongas todos los huevos en la misma canasta". Diversifica tus inversiones para reducir el riesgo.',
+    icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
+    colors: {
+      bg: "bg-green-500",
+      bgLight: "bg-green-50",
+      text: "text-green-800",
+    },
+    advice:
+      "El santo grial de la inversión es encontrar 15 o más flujos de retorno buenos y no correlacionados.",
+    author: "Ray Dalio",
+  },
+  {
+    title: "Visión a Largo Plazo",
+    description:
+      "Las mejores inversiones se miden en años, no en días. La paciencia es clave para el éxito financiero.",
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+    colors: { bg: "bg-blue-500", bgLight: "bg-blue-50", text: "text-blue-800" },
+    advice: "Nuestro período de tenencia favorito es para siempre.",
+    author: "Warren Buffett",
+  },
+  {
+    title: "Educación Financiera",
+    description:
+      "Invierte en tu educación financiera. El conocimiento es tu mejor herramienta de inversión.",
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+    colors: {
+      bg: "bg-purple-500",
+      bgLight: "bg-purple-50",
+      text: "text-purple-800",
+    },
+    advice: "La inversión más importante que puedes hacer es en ti mismo.",
+    author: "Robert Kiyosaki",
+  },
+];
+
+const successfulInvestment = [
+  {
+    option: "1. Comienza temprano",
+    description: "El interés compuesto es tu mejor aliado. Cada año cuenta.",
+  },
+  {
+    option: "2. Invierte regularmente",
+    description: "La consistencia supera a la perfección en el timing.",
+  },
+  {
+    option: "3. Controla las emociones",
+    description: "Las decisiones racionales superan a las emocionales.",
+  },
+  {
+    option: "4. Mantén costos bajos",
+    description: "Las comisiones altas pueden erosionar tus ganancias.",
+  },
+];
+---
+
+<section class="investment-section py-16 bg-gray-50">
+  <div class="mx-auto px-4 space-y-8 w-full max-w-7xl">
+    <div class="text-center mb-12">
+      <h2 class="font-bold text-gray-800 subtitle font-cinzel mb-3">
+        Inversión Inteligente
+      </h2>
+      <p class="text-gray-600 text-balance paragraph-section">
+        Hacer crecer tu dinero requiere estrategia, paciencia y conocimiento.
+        Aprende de los mejores.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
+      {
+        smartInvestment.map((investment) => (
+          <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="text-center mb-6">
+              <div
+                class:list={[
+                  "w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4",
+                  investment.colors.bg,
+                ]}
+              >
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d={investment.icon}
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-800">
+                {investment.title}
+              </h3>
+            </div>
+            <p class="text-gray-600 mb-4">{investment.description}</p>
+            <div class:list={[investment.colors.bgLight, "p-4 rounded-lg"]}>
+              <p class={`text-sm ${investment.colors.text}`}>
+                <strong>Consejo de {investment.author}:</strong>{" "}
+                {investment.advice}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="bg-gradient-to-r from-green-500 to-emerald-700 text-white p-8 rounded-xl shadow-lg"
+    >
+      <h4 class="subtitle font-semibold mb-4 text-center font-cinzel">
+        Principios de Inversión Exitosa
+      </h4>
+      <div class="grid md:grid-cols-2 gap-6">
+        {
+          successfulInvestment.map((investment) => (
+            <div>
+              <h5 class="font-semibold mb-1 text-xl">{investment.option}</h5>
+              <p class="text-green-50">{investment.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .investment-section {
+    min-height: 80vh;
+  }
+</style>

@@ -1,0 +1,182 @@
+---
+interface ExpertAdvice {
+  title: string;
+  description: string;
+  color: string;
+  textColor: string;
+}
+interface AdvincesByExpert {
+  name: string;
+  aka: string;
+  avatar: string;
+  title: string;
+  phrase: string;
+  advinces: ExpertAdvice[];
+}
+const advincesByExperts: AdvincesByExpert[] = [
+  {
+    name: "Warren Buffett",
+    aka: "WB",
+    avatar: "from-blue-500 to-blue-700",
+    title: "CEO de Berkshire Hathaway",
+    phrase: '"El precio es lo que pagas, el valor es lo que obtienes."',
+    advinces: [
+      {
+        title: "Estrategia de Valor",
+        description:
+          "Busca empresas con fundamentos sólidos que cotizen por debajo de su valor intrínseco.",
+        color: "bg-blue-50",
+        textColor: "text-blue-800",
+      },
+      {
+        title: "Consejo Práctico",
+        description:
+          "Invierte en fondos indexados de bajo costo. Es la forma más inteligente para la mayoría de las personas.",
+        color: "bg-gray-50",
+        textColor: "text-gray-800",
+      },
+    ],
+  },
+  {
+    name: "Benjamin Graham",
+    aka: "BG",
+    avatar: "from-green-500 to-green-700",
+    title: "Padre de la Inversión en Valor",
+    phrase:
+      '"En el corto plazo, el mercado es una máquina de votar. En el largo plazo, es una máquina de pesar."',
+    advinces: [
+      {
+        title: "Margen de Seguridad",
+        description:
+          "Nunca inviertas sin un margen de seguridad. Protégete de los errores de cálculo.",
+        color: "bg-green-50",
+        textColor: "text-green-800",
+      },
+      {
+        title: "Regla de Oro",
+        description:
+          "Sea temeroso cuando otros sean codiciosos, y codicioso cuando otros sean temerosos.",
+        color: "bg-gray-50",
+        textColor: "text-gray-800",
+      },
+    ],
+  },
+  {
+    name: "Suze Orman",
+    aka: "SO",
+    avatar: "from-purple-500 to-purple-700",
+    title: "Experta en Finanzas Personales",
+    phrase:
+      '"Un gran plan financiero no se trata de cuánto dinero ganas, sino de cuánto dinero conservas."',
+    advinces: [
+      {
+        title: "Prioridades Financieras",
+        description:
+          "1. Fondo de emergencia, 2. Pagar deudas de alto interés, 3. Invertir para el retiro.",
+        color: "bg-purple-50",
+        textColor: "text-purple-800",
+      },
+      {
+        title: "Poder de las Mujeres",
+        description:
+          "Las mujeres son mejores inversionistas que los hombres porque no sienten la necesidad de actuar todo el tiempo.",
+        color: "bg-gray-50",
+        textColor: "text-gray-800",
+      },
+    ],
+  },
+  {
+    name: "Dave Ramsey",
+    aka: "DR",
+    avatar: "from-orange-500 to-orange-700",
+    title: "Gurú de las Finanzas Personales",
+    phrase: '"Si vivirás como nadie más, después podrás vivir como nadie más."',
+    advinces: [
+      {
+        title: "Los 7 Pasos Bebé",
+        description:
+          "Plan paso a paso para salir de deudas y construir riqueza de forma sistemática.",
+        color: "bg-orange-50",
+        textColor: "text-orange-800",
+      },
+      {
+        title: "Filosofía de Deuda",
+        description:
+          "La deuda es normal. Sé extraño. Vive sin deudas y construye riqueza.",
+        color: "bg-gray-50",
+        textColor: "text-gray-800",
+      },
+    ],
+  },
+];
+---
+
+<section
+  class="experts-section py-16 bg-gradient-to-b from-gray-50 to-green-100"
+>
+  <div class="mx-auto px-4 space-y-12 max-w-7xl">
+    <div class="text-center">
+      <h2 class="subtitle font-bold text-gray-800 mb-4 font-cinzel">
+        Consejos de Expertos Financieros
+      </h2>
+      <p class="text-gray-600 paragraph-section">
+        Aprende de las mentes más brillantes del mundo financiero y aplica sus
+        estrategias probadas.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {
+        advincesByExperts.map((expert) => (
+          <div class="bg-white p-8 rounded-lg shadow-xl">
+            <div class="flex items-center mb-6">
+              <div
+                class:list={[
+                  "w-16 h-16 bg-gradient-to-r rounded-full flex items-center justify-center",
+                  expert.avatar,
+                ]}
+              >
+                <span class="text-white font-bold text-xl">{expert.aka}</span>
+              </div>
+              <div class="ml-4">
+                <h3 class="text-xl font-semibold text-gray-800">
+                  {expert.name}
+                </h3>
+                <p class="text-gray-600">{expert.title}</p>
+              </div>
+            </div>
+            <blockquote class="text-lg italic text-gray-700 mb-4">
+              {expert.phrase}
+            </blockquote>
+            <div class="space-y-3">
+              {expert.advinces?.map((item) => (
+                <div
+                  class:list={[item.color, item.textColor, "p-4 rounded-lg"]}
+                >
+                  <h4 class="font-semibold mb-2">{item.title}</h4>
+                  <p class="text-sm">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-8 text-center w-full max-w-2xl mx-auto">
+      <div class="bg-white p-8 rounded-lg shadow-lg inline-block">
+        <h4 class="font-semibold text-gray-800 mb-4 subtitle font-cinzel">
+          Principio Universal
+        </h4>
+        <p class="paragraph-section text-gray-600 italic">
+          "El secreto para salir adelante es comenzar. El secreto para comenzar
+          es dividir tus tareas complejas y abrumadoras en tareas pequeñas y
+          manejables, y luego comenzar con la primera."
+        </p>
+        <cite class="block mt-4 text-purple-600 font-semibold"
+          >- Mark Twain</cite
+        >
+      </div>
+    </div>
+  </div>
+</section>
