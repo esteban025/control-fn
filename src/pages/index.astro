@@ -14,6 +14,7 @@ const session = await getSession(Astro.request);
 			session ? (
 				<p class="text-green-600">
 					¡Has iniciado sesión correctamente! <br />
+					id: {session?.user?.id} <br />
 					Usuario: {session?.user?.name} <br />
 					Correo: {session?.user?.email}
 				</p>

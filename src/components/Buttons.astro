@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: string;
+  btnId: string;
+  secondary?: boolean;
+}
+const { name, btnId, secondary = false }: Props = Astro.props;
+const buttonClasses = secondary
+  ? "bg-gradient-to-b from-gray-300 to-gray-200 border-gray-200 text-gray-700 btn-shadow-secondary"
+  : "bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary";
+---
+
+<button
+  id={btnId}
+  class:list={[
+    buttonClasses,
+    "px-4 py-2 rounded-full cursor-pointer font-semibold border-2",
+  ]}
+>
+  <span>
+    {name}
+  </span>
+</button>

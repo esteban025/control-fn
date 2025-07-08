@@ -1,0 +1,19 @@
+---
+import Logo from "@/assets/logo.svg";
+import Buttons from "@/components/Buttons.astro";
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+---
+
+<header class="flex items-center justify-between p-4 bg-slate-100">
+  <a href="/">
+    <Logo class="w-full h-auto max-w-36" />
+  </a>
+  {
+    session ? (
+      <Buttons name="Cerrar Sesión" btnId="logout-button" secondary />
+    ) : (
+      <Buttons name="Iniciar Sesión" btnId="login-button" />
+    )
+  }
+</header>
