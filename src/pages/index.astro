@@ -1,7 +1,6 @@
 ---
-import { getSession } from "auth-astro/server";
+import Hero from "@sections/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-const session = await getSession(Astro.request);
 ---
 
 <Layout
@@ -9,20 +8,6 @@ const session = await getSession(Astro.request);
 	description="Este es un ejemplo de aplicación de control de finanzas"
 >
 	<main>
-		<h1 class="text-2xl font-bold">Bienvenido al Control de Finanzas</h1>
-		{
-			session ? (
-				<p class="text-green-600">
-					¡Has iniciado sesión correctamente! <br />
-					id: {session?.user?.id} <br />
-					Usuario: {session?.user?.name} <br />
-					Correo: {session?.user?.email}
-				</p>
-			) : (
-				<p class="text-red-600">
-					No has iniciado sesión. Por favor, inicia sesión para continuar.
-				</p>
-			)
-		}
+		<Hero />
 	</main>
 </Layout>
