@@ -14,9 +14,10 @@ const buttonClasses = secondary
   id={btnId}
   class:list={[
     buttonClasses,
-    "px-4 py-2 rounded-full cursor-pointer font-semibold border-2",
+    "px-4 py-2 rounded-full cursor-pointer font-semibold border-2 flex items-center justify-center gap-2 transition-colors hover:opacity-90",
   ]}
 >
+  <slot name="icon" />
   <span>
     {name}
   </span>

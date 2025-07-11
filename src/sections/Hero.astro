@@ -1,57 +1,92 @@
 ---
 import ArrowIcon from "@/assets/arrow.svg";
+import UserIcon from "@/assets/user.svg";
 ---
 
-<section class="hero p-4 overflow-hidden bg-gradient-section relative">
+<section
+  class="hero p-4 overflow-hidden bg-gradient-section min-h-screen flex items-center pt-24 lg:pt-4"
+>
   <div
-    class="absolute inset-0 opacity-[3%] flex items-center justify-center pointer-events-none"
-    style="mask-image: linear-gradient(to top, transparent 0%, black 30%);"
+    class="w-full mx-auto max-w-6xl grid lg:grid-cols-2 justify-center items-center gap-16 lg:gap-4"
   >
-    <img
-      src="/images/hero.webp"
-      alt="Hero Image"
-      class="w-full h-full object-cover max-w-4xl mx-auto"
-    />
-  </div>
-  <div
-    class="text-center space-y-4 w-full max-w-3xl mx-auto h-dvh flex flex-col justify-center items-center relative z-10"
-  >
-    <h1 class="title-principal font-bold font-cinzel text-gray-900">
-      Control de <span
-        class="bg-gradient-to-br from-green-500 to-indigo-600 bg-clip-text text-transparent"
-        >Finanzas</span
+    <article class="space-y-4 w-full">
+      <span
+        class="rounded-full px-3 py-1 bg-gray-50/90 text-xs flex items-center gap-2 text-gray-600 font-semibold shadow-md w-max"
       >
-    </h1>
-    <p class="text-gray-600 text-balance">
-      Administra tus finanzas de manera sencilla y efectiva. Lleva un control
-      detallado de tus ingresos y gastos.
-    </p>
-    <div class="btns flex items-center justify-center gap-4">
-      <a
-        href="/login"
-        class="px-4 py-2 rounded-full cursor-pointer font-semibold border-2 bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary"
+        <span class="bg-green-400 size-2 rounded-full block animate-pulse"
+        ></span>
+        <span>Haz crecer tu dinero desde hoy</span>
+      </span>
+      <h1
+        class="title-principal font-bold font-cinzel text-gray-900 text-balance lg:w-11/12"
       >
-        <span>Registrarme</span>
-      </a>
-      <a
-        href="/dashboard"
-        class="p-2 px-3 inline-flex items-center text-gray-600 rounded-full overflow-hidden relative transition-all duration-300 hover:text-gray-800 hover:bg-white before:content-[''] before:absolute before:w-0 before:h-[2px] before:bg-gray-600 before:bottom-0 before:left-0 before:rounded-full before:transition-all before:duration-300 hover:before:w-full hover:before:bg-gray-800 group"
-      >
-        <span>Ir a Dashboard</span>
-        <span class="group-hover:-rotate-30 transition-transform duration-300">
-          <ArrowIcon class="size-5 ml-2 inline-block" />
-        </span>
-      </a>
-    </div>
+        Control de <span
+          class="bg-gradient-to-br from-green-500 to-indigo-600 bg-clip-text text-transparent"
+          >Finanzas</span
+        >
+      </h1>
+      <p class="text-gray-600 text-balance p-hero">
+        Organiza tus ingresos y gastos fácilmente. Haz seguimiento y alcanza tus
+        metas.
+      </p>
+      <div class="btns flex items-center gap-4 pt-4">
+        <a
+          href="/login"
+          class="px-4 py-2 rounded-full cursor-pointer font-semibold border-2 bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary flex items-center justify-center gap-2"
+        >
+          <span><UserIcon class="size-5 inline-block" /></span>
+          <span>Registrarme</span>
+        </a>
+        <a
+          href="/dashboard"
+          class="p-2 px-3 inline-flex items-center text-gray-600 rounded-full overflow-hidden relative transition-all duration-300 hover:text-gray-800 hover:bg-white before:content-[''] before:absolute before:w-0 before:h-[2px] before:bg-gray-600 before:bottom-0 before:left-0 before:rounded-full before:transition-all before:duration-300 hover:before:w-full hover:before:bg-gray-800 group"
+        >
+          <span>Ir a Dashboard</span>
+          <span
+            class="group-hover:-rotate-30 transition-transform duration-300"
+          >
+            <ArrowIcon class="size-5 ml-2 inline-block" />
+          </span>
+        </a>
+      </div>
+    </article>
+    <article class="grid md:grid-cols-2 gap-4 items-center">
+      <div class="space-y-4">
+        <div class="bg-white/50 p-6 rounded-xl shadow-lg backdrop-blur-2xl">
+          <h3 class="text-xl font-semibold mb-3">Control total y sencillo</h3>
+          <p class="text-gray-600">
+            Registra y organiza tus gastos e ingresos fácilmente, mes a mes, sin
+            complicaciones.
+          </p>
+        </div>
+
+        <div
+          class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-xl shadow-lg backdrop-blur-2xl"
+        >
+          <h3 class="text-xl font-semibold mb-3">Privacidad ante todo</h3>
+          <p class="text-gray-100">
+            Nunca te pediremos información de tarjetas de crédito ni acceso a
+            tus cuentas bancarias.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white/50 p-6 rounded-xl shadow-lg backdrop-blur-2xl">
+        <h3 class="text-xl font-semibold mb-3">Se adapta a ti</h3>
+        <p class="text-gray-600">
+          Personaliza la plataforma según tus necesidades y metas financieras.
+        </p>
+      </div>
+    </article>
   </div>
 </section>
 
 <style>
   h1 {
     font-size: clamp(2rem, 5vw, 3rem);
-    line-height: normal;
+    line-height: 1.1;
   }
-  p {
+  .p-hero {
     font-size: clamp(1.1rem, 3vw, 1.5rem);
     line-height: normal;
   }

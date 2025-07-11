@@ -1,4 +1,5 @@
 ---
+import GoogleIcon from "@/assets/google.svg";
 import Logo from "@/assets/logo.svg";
 import Buttons from "@/components/Buttons.astro";
 import { getSession } from "auth-astro/server";
@@ -11,7 +12,7 @@ const { inLogin = false } = Astro.props as Props;
 ---
 
 <header
-  class="p-2 backdrop-blur-lg rounded-full fixed top-2 z-50 left-0 right-0 animate-scroll-down w-11/12 max-w-6xl mx-auto shadow-2xl"
+  class="p-2 rounded-full fixed top-2 z-50 left-0 right-0 animate-scroll-down w-11/12 max-w-6xl mx-auto"
 >
   <div class="flex items-center justify-between w-full">
     <a href="/">
@@ -23,7 +24,9 @@ const { inLogin = false } = Astro.props as Props;
           {session ? (
             <Buttons name="Cerrar Sesión" btnId="logout-button" secondary />
           ) : (
-            <Buttons name="Iniciar Sesión" btnId="login-button" />
+            <Buttons name="Iniciar Sesión" btnId="login-button">
+              <GoogleIcon class="size-5 inline-block" slot="icon" />
+            </Buttons>
           )}
         </>
       )
@@ -40,12 +43,15 @@ const { inLogin = false } = Astro.props as Props;
 
   @keyframes scrollDown {
     from {
-      background-color: var(--color-gray-50);
+      backdrop-filter: blur(0px);
+      background-color: transparent;
     }
     to {
+      backdrop-filter: blur(10px);
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px -12px;
       background-color: color-mix(
         in oklab,
-        var(--color-gray-200) 60%,
+        var(--color-gray-50) 50%,
         transparent
       );
       transform: scale(0.95);
