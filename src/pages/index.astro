@@ -6,6 +6,7 @@ import Hero from "@sections/Hero.astro";
 import InvestmentSection from "@sections/InvestmentSection.astro";
 import SavingsSection from "@sections/SavingsSection.astro";
 import Layout from "../layouts/Layout.astro";
+import BackgroundFixed from "@/components/BackgroundFixed.astro";
 
 // import { getSession } from "auth-astro/server";
 // const session = await getSession(Astro.request);
@@ -20,12 +21,14 @@ import Layout from "../layouts/Layout.astro";
 	description="Este es un ejemplo de aplicación de control de finanzas"
 >
 	<main class="">
-		<Hero />
-		<SavingsSection />
-		<InvestmentSection />
-		<ExpertsSection />
-		<FinancialFreedomSection />
-		<div class="fixed bottom-4 right-4 btn-animate">
+		<div class="relative z-10">
+			<Hero />
+			<SavingsSection />
+			<InvestmentSection />
+			<ExpertsSection />
+			<FinancialFreedomSection />
+		</div>
+		<div class="fixed bottom-4 right-4 btn-animate z-20">
 			<button
 				class="bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary p-2 rounded-full cursor-pointer font-semibold border-2 animate-bounce"
 				id="scroll-to-top"
@@ -35,6 +38,7 @@ import Layout from "../layouts/Layout.astro";
 				</span>
 			</button>
 		</div>
+		<BackgroundFixed />
 	</main>
 </Layout>
 

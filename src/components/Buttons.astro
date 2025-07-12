@@ -3,8 +3,9 @@ interface Props {
   name: string;
   btnId: string;
   secondary?: boolean;
+  moreClasses?: string;
 }
-const { name, btnId, secondary = false }: Props = Astro.props;
+const { name, btnId, secondary = false, moreClasses = "" }: Props = Astro.props;
 const buttonClasses = secondary
   ? "bg-gradient-to-b from-gray-300 to-gray-200 border-gray-200 text-gray-700 btn-shadow-secondary"
   : "bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary";
@@ -14,6 +15,7 @@ const buttonClasses = secondary
   id={btnId}
   class:list={[
     buttonClasses,
+    moreClasses,
     "px-4 py-2 rounded-full cursor-pointer font-semibold border-2 flex items-center justify-center gap-2 transition-colors hover:opacity-90",
   ]}
 >

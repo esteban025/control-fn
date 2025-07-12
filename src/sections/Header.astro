@@ -12,11 +12,11 @@ const { inLogin = false } = Astro.props as Props;
 ---
 
 <header
-  class="p-2 rounded-full fixed top-2 z-50 left-0 right-0 animate-scroll-down w-11/12 max-w-6xl mx-auto"
+  class="p-2 rounded-full fixed top-2 z-50 left-0 right-0 animate-scroll-down w-11/12 max-w-4xl mx-auto"
 >
   <div class="flex items-center justify-between w-full">
-    <a href="/">
-      <Logo class="w-full h-auto max-w-36 pl-1" />
+    <a class="flex w-full max-w-24" href="/">
+      <Logo class="w-full h-auto pl-1" />
     </a>
     {
       !inLogin && (
@@ -24,7 +24,11 @@ const { inLogin = false } = Astro.props as Props;
           {session ? (
             <Buttons name="Cerrar Sesión" btnId="logout-button" secondary />
           ) : (
-            <Buttons name="Iniciar Sesión" btnId="login-button">
+            <Buttons
+              name="Iniciar Sesión"
+              btnId="login-button"
+              moreClasses="text-sm"
+            >
               <GoogleIcon class="size-5 inline-block" slot="icon" />
             </Buttons>
           )}

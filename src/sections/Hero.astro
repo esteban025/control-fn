@@ -1,35 +1,51 @@
 ---
 import ArrowIcon from "@/assets/arrow.svg";
 import UserIcon from "@/assets/user.svg";
+
+const smallCard = [
+  {
+    title: "Control total y sencillo",
+    description: "Registra tus gastos facilmente",
+    icon: "icon1.svg",
+  },
+  {
+    title: "Visualiza tus finanzas",
+    description: "Gráficos y estadísticas",
+    icon: "icon2.svg",
+  },
+  {
+    title: "Acceso desde cualquier lugar",
+    description: "Controla tus finanzas en línea",
+    icon: "icon3.svg",
+  },
+];
 ---
 
 <section
-  class="hero p-4 overflow-hidden bg-gradient-section min-h-screen flex items-center justify-center"
+  class="hero p-4 overflow-hidden min-h-screen flex items-center justify-center"
 >
-  <div
-    class="w-full mx-auto max-w-6xl grid lg:grid-cols-2 justify-center items-center gap-16 lg:gap-4"
-  >
-    <article class="space-y-4 w-full">
+  <div class="w-full mx-auto max-w-6xl grid justify-center items-center gap-16">
+    <article class="space-y-4 w-full flex items-center justify-center flex-col">
       <span
-        class="rounded-full px-3 py-1 bg-gray-50/90 text-xs flex items-center gap-2 text-gray-600 font-semibold shadow-md w-max"
+        class="rounded-full px-3 py-1 bg-gray-50/90 text-xs flex justify-center items-center gap-2 text-gray-600 font-semibold shadow-md text-center"
       >
         <span class="bg-green-400 size-2 rounded-full block animate-pulse"
         ></span>
         <span>Haz crecer tu dinero desde hoy</span>
       </span>
       <h1
-        class="title-principal font-bold font-cinzel text-gray-900 text-balance lg:w-11/12"
+        class="title-principal font-bold font-cinzel text-gray-900 text-balance lg:w-11/12 text-center"
       >
         Control de <span
           class="bg-gradient-to-br from-green-500 to-indigo-600 bg-clip-text text-transparent"
           >Finanzas</span
         >
       </h1>
-      <p class="text-gray-600 text-balance p-hero">
+      <p class="text-gray-600 text-balance p-hero text-center">
         Organiza tus ingresos y gastos fácilmente. Haz seguimiento y alcanza tus
         metas.
       </p>
-      <div class="btns flex items-center gap-4 pt-4">
+      <div class="btns flex justify-center items-center gap-4 pt-4">
         <a
           href="/login"
           class="px-4 py-2 rounded-full cursor-pointer font-semibold border-2 bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary flex items-center justify-center gap-2"
@@ -50,44 +66,31 @@ import UserIcon from "@/assets/user.svg";
         </a>
       </div>
     </article>
-    <article class="grid grid-cols-2 gap-4 items-center">
-      <div class="space-y-4">
-        <div class="bg-white/50 p-6 rounded-xl shadow-lg backdrop-blur-2xl">
-          <h3 class="text-xl font-semibold mb-3">Control total y sencillo</h3>
-          <p class="text-gray-600">
-            Registra y organiza tus gastos e ingresos fácilmente, mes a mes, sin
-            complicaciones.
-          </p>
-        </div>
-
-        <div
-          class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-xl shadow-lg backdrop-blur-2xl"
-        >
-          <h3 class="text-xl font-semibold mb-3">Privacidad ante todo</h3>
-          <p class="text-gray-100">
-            Nunca te pediremos información de tarjetas de crédito ni acceso a
-            tus cuentas bancarias.
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-white/50 p-6 rounded-xl shadow-lg backdrop-blur-2xl">
-        <h3 class="text-xl font-semibold mb-3">Se adapta a ti</h3>
-        <p class="text-gray-600">
-          Personaliza la plataforma según tus necesidades y metas financieras.
-        </p>
-      </div>
+    <article
+      class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 items-center justify-center w-full"
+    >
+      {
+        smallCard.map((card) => (
+          <div class="bg-white shadow-md rounded-lg p-2 flex items-center gap-4">
+            <figure />
+            <div>
+              <h3 class="font-semibold text-gray-800 text-sm">{card.title}</h3>
+              <p class="text-gray-600 text-xs">{card.description}</p>
+            </div>
+          </div>
+        ))
+      }
     </article>
   </div>
-</section>
 
-<style>
-  h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    line-height: 1.1;
-  }
-  .p-hero {
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
-    line-height: normal;
-  }
-</style>
+  <style>
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+    }
+    .p-hero {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      line-height: normal;
+    }
+  </style>
+</section>
