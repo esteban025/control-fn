@@ -1,47 +1,30 @@
 ---
 import ArrowIcon from "@/assets/arrow.svg";
 import UserIcon from "@/assets/user.svg";
-
-const smallCard = [
-  {
-    title: "Control total y sencillo",
-    description: "Registra tus gastos facilmente",
-    icon: "icon1.svg",
-  },
-  {
-    title: "Visualiza tus finanzas",
-    description: "Gráficos y estadísticas",
-    icon: "icon2.svg",
-  },
-  {
-    title: "Acceso desde cualquier lugar",
-    description: "Controla tus finanzas en línea",
-    icon: "icon3.svg",
-  },
-];
+import { heroCards } from "@/consts/heroCards";
 ---
 
 <section
   class="hero p-4 overflow-hidden min-h-screen flex items-center justify-center"
 >
-  <div class="w-full mx-auto max-w-6xl grid justify-center items-center gap-16">
+  <div class="w-full mx-auto max-w-6xl grid justify-center items-center gap-12">
     <article class="space-y-4 w-full flex items-center justify-center flex-col">
       <span
-        class="rounded-full px-3 py-1 bg-gray-50/90 text-xs flex justify-center items-center gap-2 text-gray-600 font-semibold shadow-md text-center"
+        class="rounded-full px-3 py-1 bg-gray-50/90 text-xs flex justify-center items-center gap-2 text-gray-600 font-semibold shadow-md text-center mb-8"
       >
         <span class="bg-green-400 size-2 rounded-full block animate-pulse"
         ></span>
         <span>Haz crecer tu dinero desde hoy</span>
       </span>
       <h1
-        class="title-principal font-bold font-cinzel text-gray-900 text-balance lg:w-11/12 text-center"
+        class="title-principal font-bold font-tenor-sans text-gray-900 text-balance lg:w-11/12 text-center"
       >
         Control de <span
           class="bg-gradient-to-br from-green-500 to-indigo-600 bg-clip-text text-transparent"
           >Finanzas</span
         >
       </h1>
-      <p class="text-gray-600 text-balance p-hero text-center">
+      <p class="text-gray-600 text-balance p-hero text-center max-w-2xl">
         Organiza tus ingresos y gastos fácilmente. Haz seguimiento y alcanza tus
         metas.
       </p>
@@ -55,7 +38,7 @@ const smallCard = [
         </a>
         <a
           href="/dashboard"
-          class="p-2 px-3 inline-flex items-center text-gray-600 rounded-full overflow-hidden relative transition-all duration-300 hover:text-gray-800 hover:bg-white before:content-[''] before:absolute before:w-0 before:h-[2px] before:bg-gray-600 before:bottom-0 before:left-0 before:rounded-full before:transition-all before:duration-300 hover:before:w-full hover:before:bg-gray-800 group"
+          class="p-2 px-3 inline-flex items-center text-gray-600 rounded-full overflow-hidden relative transition-all duration-300 hover:text-gray-800 hover:bg-white/50 before:content-[''] before:absolute before:w-0 before:h-[2px] before:bg-gray-600 before:bottom-0 before:left-0 before:rounded-full before:transition-all before:duration-300 hover:before:w-full hover:before:bg-gray-800 group"
         >
           <span>Ir a Dashboard</span>
           <span
@@ -67,14 +50,20 @@ const smallCard = [
       </div>
     </article>
     <article
-      class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 items-center justify-center w-full"
+      class="flex gap-4 items-center justify-center flex-wrap w-full max-w-2xl"
     >
       {
-        smallCard.map((card) => (
-          <div class="bg-white shadow-md rounded-lg p-2 flex items-center gap-4">
-            <figure />
+        heroCards.map((card) => (
+          <div class="bg-white/60 shadow-md rounded-lg p-2 flex items-center gap-2 min-w-[265px] backdrop-blur-md">
+            <figure
+              class:list={[card.colors.bg, card.colors.text, "p-1 rounded-sm"]}
+            >
+              <card.icon class="size-8" />
+            </figure>
             <div>
-              <h3 class="font-semibold text-gray-800 text-sm">{card.title}</h3>
+              <h3 class="font-semibold text-gray-800 text-sm font-tenor-sans">
+                {card.title}
+              </h3>
               <p class="text-gray-600 text-xs">{card.description}</p>
             </div>
           </div>
@@ -89,7 +78,7 @@ const smallCard = [
       line-height: 1.1;
     }
     .p-hero {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-size: clamp(1rem, 3vw, 1.25rem);
       line-height: normal;
     }
   </style>
