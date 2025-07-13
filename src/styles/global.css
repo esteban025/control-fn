@@ -1,4 +1,7 @@
 @import "tailwindcss";
+
+/* Supports weights 400 */
+@import '@fontsource/tenor-sans';
 /* Supports weights 100-900 */
 @import '@fontsource-variable/inter';
 /* Supports weights 400-900 */
@@ -7,6 +10,7 @@
 @theme {
   --font-inter: 'Inter Variable', sans-serif;
   --font-cinzel: 'Cinzel Variable', serif;
+  --font-tenor-sans: 'Tenor Sans', sans-serif;
 }
 
 .subtitle {
@@ -42,6 +46,6 @@
     background: radial-gradient(
       circle at 50% 50%,
       var(--color-sky-100) 20%,
-      var(--color-green-50) 80%
+      var(--color-gray-50) 80%
     );
   }

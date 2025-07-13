@@ -14,6 +14,7 @@
     "@auth/core": "^0.37.4",
     "@fontsource-variable/cinzel": "^5.2.6",
     "@fontsource-variable/inter": "^5.2.6",
+    "@fontsource/tenor-sans": "^5.2.6",
     "@libsql/client": "^0.15.9",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.11.0",
