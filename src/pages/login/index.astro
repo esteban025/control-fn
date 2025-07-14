@@ -18,14 +18,28 @@ if (session) {
   inLogin
 >
   <div
-    class="flex justify-center items-center gap-3 w-full h-dvh relative z-10"
+    class="flex justify-center items-center gap-3 w-full h-dvh relative z-10 p-4"
   >
-    <div class="p-4 rounded-xl bg-gray-50 shadow-md space-y-4">
-      <header class="flex flex-col items-center">
-        <Favicon class="w-10 h-auto" />
-        <h1 class="font-cinzel text-2xl font-bold">Control de Finanzas</h1>
+    <div class="p-4 rounded-xl bg-gray-50 shadow-md space-y-4 w-full max-w-xl">
+      <header
+        class="flex flex-col items-center gap-2 border-b-2 border-gray-300 pb-4"
+      >
+        <Favicon class="w-10 h-auto mb-4" />
+        <!-- <h1 class="font-tenor-sans text-2xl font-bold">Control de Finanzas</h1> -->
+        <h1
+          class="text-3xl font-bold font-tenor-sans text-gray-900 text-balance lg:w-11/12 text-center"
+        >
+          Control de <span
+            class="bg-gradient-to-br from-green-500 to-indigo-600 bg-clip-text text-transparent"
+            >Finanzas</span
+          >
+        </h1>
+        <p class="text-center text-gray-600 text-balance">
+          Registrándote en nuestra plataforma tendrás acceso a diferentes
+          herramientas para gestionar tus finanzas de manera efectiva.
+        </p>
       </header>
-      <p class="">Por favor, inicia sesión para continuar.</p>
+      <p class="text-center">Por favor, inicia sesión para continuar.</p>
       <div class="flex items-center gap-4">
         <button
           class="flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-full px-4 py-2 cursor-pointer hover:bg-gray-50 transition-colors w-full"
@@ -46,6 +60,27 @@ if (session) {
           <span>GitHub</span>
         </button>
       </div>
+      <div class="dd flex items-center justify-center gap-2 text-gray-600">
+        <span class="w-full border-t-2 border-gray-300"></span>
+        <span class="">or</span>
+        <span class="w-full border-t-2 border-gray-300"></span>
+      </div>
+      <form action="/api/auth/login" method="post" class="flex flex-col gap-4">
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          class="border border-gray-300 rounded-full p-2 px-3"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary px-4 py-2 rounded-full cursor-pointer font-semibold border-2 flex items-center justify-center gap-2 transition-colors hover:opacity-90"
+          disabled
+        >
+          Iniciar Sesión
+        </button>
+      </form>
     </div>
   </div>
 </Layout>
