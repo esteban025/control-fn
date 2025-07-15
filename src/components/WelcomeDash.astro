@@ -1,0 +1,17 @@
+---
+import { getSession } from "auth-astro/server";
+const session = await getSession(Astro.request);
+---
+
+<section class="flex justify-between items-center w-full max-w-6xl mx-auto">
+  <h2 class="text-xl font-semibold">Dashboard</h2>
+  <div class="ss">
+    <figure>
+      <img
+        src={session?.user?.image || "/default-avatar.png"}
+        alt="Avatar"
+        class="size-10 rounded-full"
+      />
+    </figure>
+  </div>
+</section>

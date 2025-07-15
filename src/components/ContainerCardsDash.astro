@@ -1,0 +1,20 @@
+---
+import CardsResume from "@/components/cards/CardsResume.astro";
+import CardsAnalysis from "./cards/CardsAnalysis.astro";
+import CardsBudget from "./cards/CardsBudget.astro";
+import CardsExpenses from "./cards/CardsExpenses.astro";
+---
+
+<section class="w-full max-w-6xl mx-auto rounded-lg overflow-hidden relative">
+  <section
+    class="details-container flex transition-transform duration-300 ease-in-out p-1 gap-2"
+  >
+    <CardsResume />
+
+    <CardsAnalysis />
+
+    <CardsBudget />
+
+    <CardsExpenses />
+  </section>
+</section>

@@ -17,6 +17,12 @@
   overflow-x: hidden;
 } */
 
+.cont-card {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .subtitle {
   font-size: clamp(1.5rem, 2.5vw, 1.75rem);
 }

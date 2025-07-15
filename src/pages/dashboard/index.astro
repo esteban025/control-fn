@@ -1,22 +1,24 @@
 ---
-import ArrowIcon from "@/assets/arrow.svg";
 import ChartBarIcon from "@/assets/chartBar.svg";
 import ClockIcon from "@/assets/clock.svg";
 import ChartPieIcon from "@/assets/chartPie.svg";
 import ChartArcsIcon from "@/assets/chartArcs.svg";
 import RegisterIcon from "@/assets/register.svg";
-// import TrendIcon from "@/assets/trend.svg";
 import EyesIcon from "@/assets/eyes.svg";
 
 import CardDashboard from "@/components/CardDashboard.astro";
+import NavigationCardsDash from "@/components/NavigationCardsDash.astro";
+import ContainerCardsDash from "@/components/ContainerCardsDash.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getSession } from "auth-astro/server";
+import WelcomeDash from "@/components/WelcomeDash.astro";
+import NavigationMonthDash from "@/components/NavigationMonthDash.astro";
+import ResumeCardDash from "@/components/ResumeCardDash.astro";
 const session = await getSession(Astro.request);
 
 if (!session) {
   return Astro.redirect("/login");
 }
-const itemsNav = ["Resumen", "Análisis", "Presupuestos", "Gastos"];
 ---
 
 <Layout title="Dashboard" description="Control de Finanzas - Dashboard">
@@ -26,174 +28,21 @@ const itemsNav = ["Resumen", "Análisis", "Presupuestos", "Gastos"];
     <!-- header-false -->
     <header class="w-full h-[50px]"></header>
     <!-- saludamos al usuario -->
-    <section class="flex justify-between items-center w-full max-w-6xl mx-auto">
-      <h2 class="text-xl font-semibold">Dashboard</h2>
-      <div class="ss">
-        <figure>
-          <img
-            src={session?.user?.image || "/default-avatar.png"}
-            alt="Avatar"
-            class="size-10 rounded-full"
-          />
-        </figure>
-      </div>
-    </section>
+    <WelcomeDash />
 
     <!-- navegacion de mes -->
-    <section
-      class="w-full max-w-6xl mx-auto bg-gray-50 rounded-full p-2 shadow-lg"
-    >
-      <nav class="flex items-center justify-between w-full max-w-6xl mx-auto">
-        <button
-          class="p-2 rounded-full border border-gray-100 cursor-pointer bg-white"
-        >
-          <span class="rotate-180 block">
-            <ArrowIcon class="size-5" />
-          </span>
-        </button>
-        <span class="text-lg font-semibold">Septiembre 2023</span>
-        <button
-          class="p-2 rounded-full border border-gray-100 cursor-pointer bg-white"
-        >
-          <span class="block">
-            <ArrowIcon class="size-5" />
-          </span>
-        </button>
-      </nav>
-    </section>
+    <NavigationMonthDash />
 
     <!-- tarjetas de resumen -->
-    <section
-      class="w-full max-w-6xl mx-auto mt-4 p-6 rounded-lg shadow-md"
-      style="background-image: url('https://www.transparenttextures.com/patterns/cartographer.png'), linear-gradient(to right, var(--color-sky-100), var(--color-emerald-100)); background-blend-mode: color-burn;"
-    >
-      <h2 class="text-lg font-semibold mb-2">Resumen del Mes</h2>
-      <p class="text-gray-800 mb-4">
-        Aquí puedes ver un resumen de tus finanzas para el mes actual.
-      </p>
-      <div class="grid grid-cols-3 gap-4 mt-4">
-        <div class="bg-gray-50/90 p-4 rounded-lg shadow-md">
-          <h3 class="text-lg font-semibold">Ingresos</h3>
-          <p class="text-xl text-gray-600">$5,000</p>
-        </div>
-        <div class="bg-gray-50/90 p-4 rounded-lg shadow-md">
-          <h3 class="text-lg font-semibold">Gastos</h3>
-          <p class="text-xl text-gray-600">$3,000</p>
-        </div>
-        <div class="bg-gray-50/90 p-4 rounded-lg shadow-md">
-          <h3 class="text-lg font-semibold">Ahorros</h3>
-          <p class="text-xl text-gray-600">$2,000</p>
-        </div>
-      </div>
-    </section>
+    <ResumeCardDash />
 
     <!-- navegacion de detalles -->
-    <nav class="w-full mt-6">
-      <ul
-        class="grid grid-cols-4 gap- items-center justify-center bg-gray-50 p-2 rounded-full relative overflow-hidden shadow-lg max-w-6xl mx-auto"
-        id="nav-list"
-      >
-        {
-          itemsNav.map((item) => (
-            <li class="flex items-center justify-center">
-              <a
-                class="w-full text-center relative z-[1] py-1 cursor-pointer text-gray-800 truncate text-sm lg:text-base"
-                data-item-name={item}
-              >
-                {item}
-              </a>
-            </li>
-          ))
-        }
-        <li
-          id="active-indicator"
-          class={`w-1/4 absolute inset-1 rounded-full bg-white pointer-events-none transition-all duration-400 ease-in-out shadow-md border border-gray-200`}
-        >
-        </li>
-      </ul>
-    </nav>
+    <NavigationCardsDash />
 
     <!-- detalles resume -->
-    <section
-      class="w-full max-w-6xl mx-auto rounded-lg overflow-hidden relative"
-    >
-      <section
-        class="details-container flex transition-transform duration-300 ease-in-out p-1 gap-2"
-      >
-        <div
-          class="w-full grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 cont-card"
-        >
-          <CardDashboard
-            title="Gastos por Categoría"
-            description="Distribución de tus gastos al mes"
-          >
-            <ChartBarIcon class="size-5" slot="icon" />
-            <p>hola</p>
-          </CardDashboard>
-          <CardDashboard
-            title="Gastos Recientes"
-            description="Últimos gastos registrados del mes"
-          >
-            <ClockIcon class="size-5" slot="icon" />
-            <p>hola</p>
-          </CardDashboard>
-        </div>
-
-        <div class="w-full cont-card flex flex-col gap-4">
-          <CardDashboard
-            title="Distribución de Gastos"
-            description="Porcentaje de gastos por categoría"
-          >
-            <ChartPieIcon class="size-5" slot="icon" />
-            <p>hola</p>
-          </CardDashboard>
-          <CardDashboard
-            title="Presupuesto vs Gastos Reales"
-            description="Comparación entre tu presupuesto configurado y lo gastado"
-          >
-            <ChartArcsIcon class="size-5" slot="icon" />
-            <p>hola</p>
-          </CardDashboard>
-        </div>
-
-        <div class="w-full cont-card flex flex-col gap-4">
-          <CardDashboard
-            title="Presupuestos Mensuales"
-            description="Configura tus límites de gasto por categoría"
-          >
-            <ChartArcsIcon class="size-5" slot="icon" />
-            <p>hola</p>
-          </CardDashboard>
-          <CardDashboard
-            title="Guía de Subcategorías"
-            description="Explora las subcategorías disponibles para establecer presupuestos más precisos"
-          >
-            <EyesIcon class="size-5" slot="icon" />
-            <p>hola</p>
-          </CardDashboard>
-        </div>
-
-        <div class="w-full cont-card">
-          <CardDashboard
-            title="Registro de Gastos"
-            description="Todos tus gastos registrados para Julio 2025"
-          >
-            <RegisterIcon class="size-5" slot="icon" />
-            <p>hola</p>
-          </CardDashboard>
-        </div>
-      </section>
-    </section>
+    <ContainerCardsDash />
   </main>
 </Layout>
-
-<style>
-  .cont-card {
-    flex: 0 0 100%;
-    width: 100%;
-    box-sizing: border-box;
-  }
-</style>
 
 <script>
   const $itemsNav = document.querySelectorAll(

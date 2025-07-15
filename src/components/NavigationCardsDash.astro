@@ -1,0 +1,28 @@
+---
+import { itemsNav } from "@/consts/itemsNav.ts";
+---
+
+<nav class="w-full mt-6">
+  <ul
+    class="grid grid-cols-4 gap- items-center justify-center bg-gray-50 p-2 rounded-full relative overflow-hidden shadow-lg max-w-6xl mx-auto"
+    id="nav-list"
+  >
+    {
+      itemsNav.map((item) => (
+        <li class="flex items-center justify-center">
+          <a
+            class="w-full text-center relative z-[1] py-1 cursor-pointer text-gray-800 truncate text-sm lg:text-base"
+            data-item-name={item}
+          >
+            {item}
+          </a>
+        </li>
+      ))
+    }
+    <li
+      id="active-indicator"
+      class={`w-1/4 absolute inset-1 rounded-full bg-white pointer-events-none transition-all duration-400 ease-in-out shadow-md border border-gray-200`}
+    >
+    </li>
+  </ul>
+</nav>

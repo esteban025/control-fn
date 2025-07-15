@@ -1,0 +1,23 @@
+---
+import CardDashboard from "@/components/CardDashboard.astro";
+// assets
+import ChartArcsIcon from "@/assets/chartArcs.svg";
+import ChartPieIcon from "@/assets/chartPie.svg";
+---
+
+<div class="w-full cont-card flex flex-col gap-4">
+  <CardDashboard
+    title="Distribución de Gastos"
+    description="Porcentaje de gastos por categoría"
+  >
+    <ChartPieIcon class="size-5" slot="icon" />
+    <p>hola</p>
+  </CardDashboard>
+  <CardDashboard
+    title="Presupuesto vs Gastos Reales"
+    description="Comparación entre tu presupuesto configurado y lo gastado"
+  >
+    <ChartArcsIcon class="size-5" slot="icon" />
+    <p>hola</p>
+  </CardDashboard>
+</div>

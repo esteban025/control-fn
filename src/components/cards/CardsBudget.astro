@@ -1,0 +1,22 @@
+---
+import ChartArcsIcon from "@/assets/chartArcs.svg";
+import EyesIcon from "@/assets/eyes.svg";
+import CardDashboard from "@/components/CardDashboard.astro";
+---
+
+<div class="w-full cont-card flex flex-col gap-4">
+  <CardDashboard
+    title="Presupuestos Mensuales"
+    description="Configura tus límites de gasto por categoría"
+  >
+    <ChartArcsIcon class="size-5" slot="icon" />
+    <p>hola</p>
+  </CardDashboard>
+  <CardDashboard
+    title="Guía de Subcategorías"
+    description="Explora las subcategorías disponibles para establecer presupuestos más precisos"
+  >
+    <EyesIcon class="size-5" slot="icon" />
+    <p>hola</p>
+  </CardDashboard>
+</div>
