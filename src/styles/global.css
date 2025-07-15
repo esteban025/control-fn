@@ -13,9 +13,9 @@
   --font-tenor-sans: 'Tenor Sans', sans-serif;
 }
 
-html {
+/* html {
   overflow-x: hidden;
-}
+} */
 
 .subtitle {
   font-size: clamp(1.5rem, 2.5vw, 1.75rem);
