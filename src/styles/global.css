@@ -53,9 +53,16 @@
 }
 
 .bg-gradient-section {
-    background: radial-gradient(
-      circle at 50% 50%,
-      var(--color-sky-100) 20%,
-      var(--color-gray-50) 80%
-    );
-  }
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--color-sky-100) 20%,
+    var(--color-gray-50) 80%
+  );
+}
+
+.card-resume {
+  background: var(--color-white);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}

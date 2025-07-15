@@ -1,3 +1,10 @@
+---
+import CardBalance from "./cards/CardBalance.astro";
+import CardResumeIncomes from "./cards/CardResumeIncomes.astro";
+import CardTotalBudget from "./cards/CardTotalBudget.astro";
+import CardTotalSpent from "./cards/CardTotalSpent.astro";
+---
+
 <section
   class="w-full max-w-6xl mx-auto mt-4 p-6 rounded-lg shadow-md"
   style="background-image: url('https://www.transparenttextures.com/patterns/cartographer.png'), linear-gradient(to right, var(--color-sky-100), var(--color-emerald-100)); background-blend-mode: color-burn;"
@@ -6,18 +13,10 @@
   <p class="text-gray-800 mb-4">
     Aquí puedes ver un resumen de tus finanzas para el mes actual.
   </p>
-  <div class="grid grid-cols-3 gap-4 mt-4">
-    <div class="bg-gray-50/90 p-4 rounded-lg shadow-md">
-      <h3 class="text-lg font-semibold">Ingresos</h3>
-      <p class="text-xl text-gray-600">$5,000</p>
-    </div>
-    <div class="bg-gray-50/90 p-4 rounded-lg shadow-md">
-      <h3 class="text-lg font-semibold">Gastos</h3>
-      <p class="text-xl text-gray-600">$3,000</p>
-    </div>
-    <div class="bg-gray-50/90 p-4 rounded-lg shadow-md">
-      <h3 class="text-lg font-semibold">Ahorros</h3>
-      <p class="text-xl text-gray-600">$2,000</p>
-    </div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+    <CardResumeIncomes />
+    <CardTotalSpent />
+    <CardBalance />
+    <CardTotalBudget />
   </div>
 </section>

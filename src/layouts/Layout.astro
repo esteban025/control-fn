@@ -20,7 +20,9 @@ const { title, description, inLogin = false } = Astro.props as Props;
 		<title>{title}</title>
 		<meta name="description" content={description} />
 	</head>
-	<body class="font-inter grid grid-rows-[auto_1fr_auto] min-h-screen">
+	<body
+		class="font-inter grid grid-rows-[auto_1fr_auto] min-h-screen text-gray-950"
+	>
 		<Header inLogin={inLogin} />
 		<slot />
 		<Footer />

@@ -53,6 +53,8 @@ if (!session) {
     ".details-container",
   ) as HTMLElement;
 
+  $itemsNav[0].classList.add("active");
+
   function setActiveIndicator(transform: string, left: string) {
     const $activeIndicator = document.getElementById(
       "active-indicator",
@@ -70,8 +72,11 @@ if (!session) {
 
   $itemsNav.forEach(($item) => {
     $item.addEventListener("click", (e) => {
+      $itemsNav.forEach(($el) => $el.classList.remove("active"));
+      $item.classList.add("active");
       e.preventDefault();
       const { itemName } = $item.dataset;
+      if (!itemName) return;
 
       switch (itemName) {
         case "Resumen":

@@ -1,20 +1,25 @@
 ---
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  noHeader?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noHeader = false } = Astro.props;
 ---
 
-<article class="w-full bg-gray-50 rounded-xl p-4 shadow-md">
-  <header>
-    <h2 class="flex items-center gap-2 text-lg font-semibold">
-      <slot name="icon" />
-      <span>{title}</span>
-    </h2>
-    <p class="text-gray-600 text-xs lg:text-base">{description}</p>
-  </header>
+<article class="w-full bg-white/90 rounded-xl p-4 shadow-md">
+  {
+    !noHeader && (
+      <header>
+        <h2 class="flex items-center gap-2 text-lg font-semibold lg:text-xl">
+          <slot name="icon" />
+          <span>{title}</span>
+        </h2>
+        <p class="text-gray-600 text-xs lg:text-base">{description}</p>
+      </header>
+    )
+  }
   <div class="cc">
     <slot />
   </div>
