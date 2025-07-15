@@ -1,5 +1,14 @@
 ---
 import ArrowIcon from "@/assets/arrow.svg";
+import ChartBarIcon from "@/assets/chartBar.svg";
+import ClockIcon from "@/assets/clock.svg";
+import ChartPieIcon from "@/assets/chartPie.svg";
+import ChartArcsIcon from "@/assets/chartArcs.svg";
+import RegisterIcon from "@/assets/register.svg";
+// import TrendIcon from "@/assets/trend.svg";
+import EyesIcon from "@/assets/eyes.svg";
+
+import CardDashboard from "@/components/CardDashboard.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
@@ -81,7 +90,7 @@ const itemsNav = ["Resumen", "Análisis", "Presupuestos", "Gastos"];
     <!-- navegacion de detalles -->
     <nav class="w-full mt-6">
       <ul
-        class="grid grid-cols-4 gap-3 items-center justify-center bg-gray-50 p-2 rounded-full relative overflow-hidden shadow-lg max-w-6xl mx-auto"
+        class="grid grid-cols-4 gap- items-center justify-center bg-gray-50 p-2 rounded-full relative overflow-hidden shadow-lg max-w-6xl mx-auto"
         id="nav-list"
       >
         {
@@ -103,40 +112,142 @@ const itemsNav = ["Resumen", "Análisis", "Presupuestos", "Gastos"];
         </li>
       </ul>
     </nav>
+
+    <!-- detalles resume -->
+    <section
+      class="w-full max-w-6xl mx-auto rounded-lg overflow-hidden relative"
+    >
+      <section
+        class="details-container flex transition-transform duration-300 ease-in-out p-1 gap-2"
+      >
+        <div
+          class="w-full grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 cont-card"
+        >
+          <CardDashboard
+            title="Gastos por Categoría"
+            description="Distribución de tus gastos al mes"
+          >
+            <ChartBarIcon class="size-5" slot="icon" />
+            <p>hola</p>
+          </CardDashboard>
+          <CardDashboard
+            title="Gastos Recientes"
+            description="Últimos gastos registrados del mes"
+          >
+            <ClockIcon class="size-5" slot="icon" />
+            <p>hola</p>
+          </CardDashboard>
+        </div>
+
+        <div class="w-full cont-card flex flex-col gap-4">
+          <CardDashboard
+            title="Distribución de Gastos"
+            description="Porcentaje de gastos por categoría"
+          >
+            <ChartPieIcon class="size-5" slot="icon" />
+            <p>hola</p>
+          </CardDashboard>
+          <CardDashboard
+            title="Presupuesto vs Gastos Reales"
+            description="Comparación entre tu presupuesto configurado y lo gastado"
+          >
+            <ChartArcsIcon class="size-5" slot="icon" />
+            <p>hola</p>
+          </CardDashboard>
+        </div>
+
+        <div class="w-full cont-card flex flex-col gap-4">
+          <CardDashboard
+            title="Presupuestos Mensuales"
+            description="Configura tus límites de gasto por categoría"
+          >
+            <ChartArcsIcon class="size-5" slot="icon" />
+            <p>hola</p>
+          </CardDashboard>
+          <CardDashboard
+            title="Guía de Subcategorías"
+            description="Explora las subcategorías disponibles para establecer presupuestos más precisos"
+          >
+            <EyesIcon class="size-5" slot="icon" />
+            <p>hola</p>
+          </CardDashboard>
+        </div>
+
+        <div class="w-full cont-card">
+          <CardDashboard
+            title="Registro de Gastos"
+            description="Todos tus gastos registrados para Julio 2025"
+          >
+            <RegisterIcon class="size-5" slot="icon" />
+            <p>hola</p>
+          </CardDashboard>
+        </div>
+      </section>
+    </section>
   </main>
 </Layout>
+
+<style>
+  .cont-card {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+</style>
 
 <script>
   const $itemsNav = document.querySelectorAll(
     "#nav-list li a",
   ) as NodeListOf<HTMLLIElement>;
 
-  function setActiveIndicator(trsnform: string, left: string) {
+  const $detailsContainer = document.querySelector(
+    ".details-container",
+  ) as HTMLElement;
+
+  function setActiveIndicator(transform: string, left: string) {
     const $activeIndicator = document.getElementById(
       "active-indicator",
     ) as HTMLLIElement;
-    $activeIndicator.style.transform = trsnform;
+    $activeIndicator.style.transform = transform;
     $activeIndicator.style.left = left;
   }
 
+  function moveToSection(sectionIndex: number) {
+    if ($detailsContainer) {
+      const translateValue = -sectionIndex * 100;
+      $detailsContainer.style.transform = `translateX(${translateValue}%)`;
+    }
+  }
+
   $itemsNav.forEach(($item) => {
-    $item.addEventListener("click", () => {
+    $item.addEventListener("click", (e) => {
+      e.preventDefault();
       const { itemName } = $item.dataset;
 
       switch (itemName) {
         case "Resumen":
           setActiveIndicator("translateX(0px)", "4px");
+          moveToSection(0);
           break;
         case "Análisis":
           setActiveIndicator(`translateX(calc(100% - 2px))`, "0px");
+          moveToSection(1);
           break;
         case "Presupuestos":
           setActiveIndicator(`translateX(calc(200% - 2px))`, "0px");
+          moveToSection(2);
           break;
         case "Gastos":
           setActiveIndicator(`translateX(calc(300% - 4px))`, "0px");
+          moveToSection(3);
           break;
       }
     });
+  });
+
+  // Inicializar en la primera sección
+  document.addEventListener("DOMContentLoaded", () => {
+    setActiveIndicator("translateX(0px)", "4px");
+    moveToSection(0);
   });
 </script>
