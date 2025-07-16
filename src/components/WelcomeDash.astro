@@ -1,17 +1,46 @@
 ---
-import { getSession } from "auth-astro/server";
-const session = await getSession(Astro.request);
+import DollarIcon from "@/assets/dollar.svg";
+import PlusIcon from "@/assets/plus.svg";
 ---
 
-<section class="flex justify-between items-center w-full max-w-6xl mx-auto">
-  <h2 class="text-xl font-semibold">Dashboard</h2>
-  <div class="ss">
-    <figure>
-      <img
-        src={session?.user?.image || "/default-avatar.png"}
-        alt="Avatar"
-        class="size-10 rounded-full"
-      />
-    </figure>
+<section
+  class="flex justify-between items-start w-full max-w-6xl mx-auto gap-4 mb-4"
+>
+  <header>
+    <h1 class="text-2xl font-bold">Bienvenido al Dashboard</h1>
+    <p class="text-gray-600 text-sm">
+      Aquí puedes ver un resumen de tus finanzas.
+    </p>
+  </header>
+  <div
+    class="buttons add flex flex-col w-full max-w-lg gap-x-4 gap-y-2 items-center md:flex-row"
+  >
+    <button class="btn btn-primary btn-shadow-primary" id="open-expenses-modal">
+      <PlusIcon class="size-5" />
+      Añadir Gasto
+    </button>
+    <button
+      class="btn btn-secondary btn-shadow-secondary"
+      id="open-income-modal"
+    >
+      <DollarIcon class="size-5" />
+      Añadir Ingreso
+    </button>
   </div>
 </section>
+
+<script>
+  const $btnOpenExpenseModal = document.getElementById(
+    "open-expenses-modal",
+  ) as HTMLButtonElement;
+  const $btnOpenIncomeModal = document.getElementById(
+    "open-income-modal",
+  ) as HTMLButtonElement;
+
+  $btnOpenExpenseModal.addEventListener("click", () => {
+    const $expensesModal = document.getElementById(
+      "expenses-modal",
+    ) as HTMLDialogElement;
+    $expensesModal.showModal();
+  });
+</script>

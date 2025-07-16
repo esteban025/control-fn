@@ -1,6 +1,7 @@
 ---
 import GoogleIcon from "@/assets/google.svg";
 import Logo from "@/assets/logo.svg";
+import LogoutIcon from "@/assets/logout.svg";
 import Buttons from "@/components/Buttons.astro";
 import { getSession } from "auth-astro/server";
 const session = await getSession(Astro.request);
@@ -22,7 +23,19 @@ const { inLogin = false } = Astro.props as Props;
       !inLogin && (
         <>
           {session ? (
-            <Buttons name="Cerrar Sesión" btnId="logout-button" secondary />
+            // <Buttons name="Cerrar Sesión" btnId="logout-button" secondary />
+            <div class="space-x-2 flex items-center gap-2">
+              <button id="logout-button" class="cursor-pointer">
+                <LogoutIcon class="size-6 inline-block" />
+              </button>
+              <figure>
+                <img
+                  class="size-10 rounded-full"
+                  src={session.user?.image || ""}
+                  alt="Usuario"
+                />
+              </figure>
+            </div>
           ) : (
             <Buttons
               name="Iniciar Sesión"

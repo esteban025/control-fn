@@ -14,6 +14,7 @@ import { getSession } from "auth-astro/server";
 import WelcomeDash from "@/components/WelcomeDash.astro";
 import NavigationMonthDash from "@/components/NavigationMonthDash.astro";
 import ResumeCardDash from "@/components/ResumeCardDash.astro";
+import Expenses from "@/components/modals/Expenses.astro";
 const session = await getSession(Astro.request);
 
 if (!session) {
@@ -41,6 +42,9 @@ if (!session) {
 
     <!-- detalles resume -->
     <ContainerCardsDash />
+
+    <!-- dialogs-modals -->
+    <Expenses />
   </main>
 </Layout>
 

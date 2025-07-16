@@ -1,0 +1,86 @@
+---
+
+---
+
+<dialog
+  class="modal backdrop:bg-black/80 backdrop:backdrop-blur-md rounded-xl border border-gray-300 shadow-lg w-11/12 max-w-2xl m-auto"
+  id="expenses-modal"
+  closedby="any"
+>
+  <form
+    method="dialog"
+    class="modal flex justify-center items-center p-4 flex-col gap-4"
+  >
+    <header class="modal-header self-start space-y-1">
+      <h2 class="text-lg font-semibold">Añadir un nuevo gasto</h2>
+      <p class="text-sm text-gray-600">
+        Registra un nuevo gasto en tu presupuesto mensual
+      </p>
+    </header>
+    <div class="modal-content w-full flex flex-col gap-4">
+      <div class="fecha">
+        <label for="expense-date" class="block text-sm font-medium">
+          Fecha del gasto
+        </label>
+        <input
+          type="date"
+          id="expense-date"
+          name="expense-date"
+          class="input input-bordered w-full"
+          required
+        />
+      </div>
+      <div class="amount">
+        <label for="expense-amount" class="block text-sm font-medium">
+          Monto del gasto
+        </label>
+        <input
+          type="number"
+          id="expense-amount"
+          name="expense-amount"
+          class="input input-bordered w-full"
+          placeholder="0.00"
+          step="0.01"
+          required
+        />
+      </div>
+      <div class="description">
+        <label for="expense-description" class="block text-sm font-medium">
+          Descripción del gasto
+        </label>
+        <textarea
+          id="expense-description"
+          name="expense-description"
+          class="textarea textarea-bordered w-full"
+          placeholder="Descripción del gasto"
+          rows="3"
+          required></textarea>
+      </div>
+      <div class="category">
+        <label for="expense-category" class="block text-sm font-medium">
+          Categoría del gasto
+        </label>
+        <select
+          id="expense-category"
+          name="expense-category"
+          class="select select-bordered w-full"
+          required
+        >
+          <option value="">Selecciona una categoría</option>
+          <option value="comida">Comida</option>
+          <option value="transporte">Transporte</option>
+          <option value="entretenimiento">Entretenimiento</option>
+          <option value="salud">Salud</option>
+        </select>
+      </div>
+    </div>
+    <footer class="flex items-center justify-center gap-2 p-4 w-full">
+      <button type="submit" class="btn btn-primary" disabled>Guardar</button>
+      <button
+        type="reset"
+        class="btn btn-secondary"
+        onclick="this.closest('dialog').close()">Cancelar</button
+      >
+    </footer>
+  </form>
+</dialog>

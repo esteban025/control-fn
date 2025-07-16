@@ -1,5 +1,8 @@
 ---
+import { getIncomes } from "@/lib/incomes";
 import CardDashboard from "../CardDashboard.astro";
+const incomes = await getIncomes();
+console.log("Incomes:", incomes);
 ---
 
 <CardDashboard noHeader>
@@ -8,7 +11,7 @@ import CardDashboard from "../CardDashboard.astro";
   </header>
   <article class="space-y-1">
     <span class="text-xl text-green-600 font-semibold block text-center"
-      >$5000</span
+      >${incomes.reduce((acc, income) => acc + income.amount, 0)}</span
     >
     <p class="text-gray-600 text-xs text-center truncate">
       Descripción de los ingresos mensuales.
