@@ -1,5 +1,5 @@
 ---
-
+import { SelectForm } from "@/components/modals/FormCategories";
 ---
 
 <dialog
@@ -20,7 +20,7 @@
     <div class="modal-content w-full flex flex-col gap-4">
       <div class="fecha">
         <label for="expense-date" class="block text-sm font-medium">
-          Fecha del gasto
+          Fecha
         </label>
         <input
           type="date"
@@ -32,7 +32,7 @@
       </div>
       <div class="amount">
         <label for="expense-amount" class="block text-sm font-medium">
-          Monto del gasto
+          Monto
         </label>
         <input
           type="number"
@@ -46,7 +46,7 @@
       </div>
       <div class="description">
         <label for="expense-description" class="block text-sm font-medium">
-          Descripción del gasto
+          Descripción
         </label>
         <textarea
           id="expense-description"
@@ -56,23 +56,7 @@
           rows="3"
           required></textarea>
       </div>
-      <div class="category">
-        <label for="expense-category" class="block text-sm font-medium">
-          Categoría del gasto
-        </label>
-        <select
-          id="expense-category"
-          name="expense-category"
-          class="select select-bordered w-full"
-          required
-        >
-          <option value="">Selecciona una categoría</option>
-          <option value="comida">Comida</option>
-          <option value="transporte">Transporte</option>
-          <option value="entretenimiento">Entretenimiento</option>
-          <option value="salud">Salud</option>
-        </select>
-      </div>
+      <SelectForm client:load />
     </div>
     <footer class="flex items-center justify-center gap-2 p-4 w-full">
       <button type="submit" class="btn btn-primary" disabled>Guardar</button>

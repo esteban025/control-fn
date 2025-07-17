@@ -1,14 +1,13 @@
 ---
 import CardDashboard from "@/components/CardDashboard.astro";
-import { getExpenses } from "@/lib/expenses";
+// import { getExpenses } from "@/lib/expenses";
 // assets
 import ChartBarIcon from "@/assets/chartBar.svg";
 import ClockIcon from "@/assets/clock.svg";
 
 // types
-import type { Expense } from "@/types/expense";
 
-const expenses = (await getExpenses()) as unknown as Expense[];
+// const expenses = (await getExpenses()) as unknown as Expense[];
 ---
 
 <div
@@ -19,11 +18,11 @@ const expenses = (await getExpenses()) as unknown as Expense[];
     description="Distribución de tus gastos al mes"
   >
     <ChartBarIcon class="size-5" slot="icon" />
-    {
+    <!-- {
       expenses.length > 0
         ? `Total de gastos: ${expenses.reduce((acc, expense) => acc + expense.amount, 0)}`
         : "No hay gastos registrados"
-    }
+    } -->
   </CardDashboard>
   <CardDashboard
     title="Gastos Recientes"
