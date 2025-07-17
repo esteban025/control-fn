@@ -7,13 +7,15 @@ import auth from 'auth-astro';
 
 import netlify from '@astrojs/netlify';
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
 
-  integrations: [auth()],
+  integrations: [auth(), react()],
   adapter: netlify(),
   output: 'server',
 });
