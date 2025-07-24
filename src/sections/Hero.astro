@@ -10,7 +10,7 @@ import { heroCards } from "@/consts/heroCards";
   <div class="w-full mx-auto max-w-6xl grid justify-center items-center gap-12">
     <article class="space-y-4 w-full flex items-center justify-center flex-col">
       <span
-        class="rounded-full px-3 py-1 bg-gray-50/90 text-xs flex justify-center items-center gap-2 text-gray-600 font-semibold shadow-md text-center mb-8"
+        class="rounded-full px-3 py-1 bg-gray-50/90 text-xs flex justify-center items-center gap-2 text-gray-600 font-semibold shadow-md text-center mb-8 intro-hero"
       >
         <span class="bg-green-400 size-2 rounded-full block animate-pulse"
         ></span>
@@ -19,8 +19,7 @@ import { heroCards } from "@/consts/heroCards";
       <h1
         class="title-principal font-bold font-tenor-sans text-gray-900 text-balance lg:w-11/12 text-center"
       >
-        Control de <span
-          class="bg-gradient-to-br from-green-500 to-indigo-600 bg-clip-text text-transparent"
+        Control de <span class="title-principal-gradient text-indigo-600"
           >Finanzas</span
         >
       </h1>
@@ -29,18 +28,15 @@ import { heroCards } from "@/consts/heroCards";
         metas.
       </p>
       <div class="btns flex justify-center items-center gap-4 pt-4">
-        <a
-          href="/login"
-          class="px-4 py-2 rounded-full cursor-pointer font-semibold border-2 bg-gradient-to-b from-blue-700 to-blue-500 border-blue-500 text-white btn-shadow-primary flex items-center justify-center gap-2"
-        >
+        <a href="/login" class="btn btn-primary btn-shadow-primary">
           <span><UserIcon class="size-5 inline-block" /></span>
           <span>Registrarme</span>
         </a>
         <a
           href="/dashboard"
-          class="p-2 px-3 inline-flex items-center text-gray-600 rounded-full overflow-hidden relative transition-all duration-300 hover:text-gray-800 hover:bg-white/50 before:content-[''] before:absolute before:w-0 before:h-[2px] before:bg-gray-600 before:bottom-0 before:left-0 before:rounded-full before:transition-all before:duration-300 hover:before:w-full hover:before:bg-gray-800 group"
+          class="btn btn-secondary btn-shadow-secondary group"
         >
-          <span>Ir a Dashboard</span>
+          <span class="block w-max">Ir a Dashboard</span>
           <span
             class="group-hover:-rotate-30 transition-transform duration-300"
           >
@@ -50,7 +46,7 @@ import { heroCards } from "@/consts/heroCards";
       </div>
     </article>
     <article
-      class="flex gap-4 items-center justify-center flex-wrap w-full max-w-2xl"
+      class="flex gap-4 items-center justify-center flex-wrap w-full max-w-2xl hero-cards"
     >
       {
         heroCards.map((card) => (
@@ -71,15 +67,93 @@ import { heroCards } from "@/consts/heroCards";
       }
     </article>
   </div>
-
-  <style>
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.1;
-    }
-    .p-hero {
-      font-size: clamp(1rem, 3vw, 1.25rem);
-      line-height: normal;
-    }
-  </style>
 </section>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+  }
+  .p-hero {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: normal;
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+  import SplitText from "gsap/SplitText";
+  gsap.registerPlugin(SplitText);
+
+  const tlTitle = gsap.timeline({
+    defaults: { duration: 0.8, ease: "power2.out" },
+  });
+
+  const tlBtns = gsap.timeline({
+    defaults: { duration: 0.8, ease: "power2.out" },
+  });
+
+  const splitTitle = new SplitText(".title-principal", { type: "chars" });
+  const splitTitleGradient = new SplitText(".title-principal-gradient", {
+    type: "chars",
+  });
+
+  tlTitle
+    .from(splitTitle.chars, {
+      y: 40,
+      opacity: 0,
+      filter: "blur(3px)",
+      duration: 0.7,
+      stagger: 0.04,
+    })
+    .from(
+      splitTitleGradient.chars,
+      {
+        y: 40,
+        opacity: 0,
+        filter: "blur(3px)",
+        duration: 0.7,
+        stagger: 0.04,
+      },
+      "<",
+    )
+    .from(
+      ".p-hero",
+      {
+        y: 40,
+        opacity: 0,
+        filter: "blur(3px)",
+        duration: 0.7,
+        stagger: 0.04,
+      },
+      "<",
+    )
+    .from(
+      ".intro-hero",
+      {
+        y: 40,
+        opacity: 0,
+        scale: 0.3,
+        duration: 0.7,
+        stagger: 0.04,
+      },
+      "0.5",
+    )
+    .from(
+      ".hero-cards div",
+      {
+        y: 60,
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.06,
+      },
+      "0.8",
+    );
+
+  tlBtns.from(".btns a", {
+    y: 60,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.04,
+  });
+</script>
